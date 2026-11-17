@@ -11,16 +11,16 @@ fn diceroll() -> i32 {
 }
 
 //Function to calculate the total attack roll and print it
+//Function to calculate the total attack roll and print it
 fn player_attack() {
-    let attack_total = attack_roll(); //call attack_roll function to get total attack roll
-    println!("Does a {} hit?", attack_total);
+    let attack_total = attack_roll(attk_mod: 6); //call attack_roll function to get total attack roll, pasing in the attack modifier of 6
+    println!("Does a(n) {} hit?", attack_total);
 }
 
 //Function to calculate the total attack roll by adding the d20 roll and the attack modifier
-fn attack_roll() -> i32 {
+fn attack_roll(attk_mod: i32) -> i32 {
     let num = diceroll(); //call diceroll function to get random number between 1 and 20
-    let attk_mod = 6; 
-    let attack_total: i32 = num + attk_mod; //add the d20 roll and the attack modifier to get the total attack roll       
+    let attack_total: i32 = num + attk_mod; //add the d20 roll and the attack modifier to get the total attack roll      
 
     return attack_total;
 }
