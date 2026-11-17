@@ -20,7 +20,7 @@ fn player_attack() {
 fn attack_roll() -> i32 {
     let num = diceroll(); //call diceroll function to get random number between 1 and 20
     let attk_mod = 6; 
-    let attack_total: i32 = num + attk_mod;       
+    let attack_total: i32 = num + attk_mod; //add the d20 roll and the attack modifier to get the total attack roll       
 
     return attack_total;
 }
