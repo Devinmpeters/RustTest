@@ -1,7 +1,18 @@
-use rand::Rng; //using rand dependency 0.8
 
+use rand::Rng; //using rand dependency 0.8
+use std::io; //using std::io dependency
+
+//Main function to run the program
 fn main() {
-    player_attack(); //call player_attack function
+    println!("Welcome to the Dungeons and Dragons Attack Roll Simulator!"); //print welcome message
+    println!("Please enter your attack modifier: "); //prompt user for attack modifier
+
+    let mut input: String = String::new(); //create variable to hold user input
+    io::stdin().read_line(&mut input).expect("Failed to read line"); //read user input
+
+    println!("Press enter to roll a d20 and add your attack modifier of {} to see if you hit your target!", input); //prompt user to press enter
+
+    player_attack(input.parse().unwrap_or(0)); //call player_attack function
 }
 
 //Return random number between 1 and 20 to simulate a d20 roll
@@ -11,9 +22,8 @@ fn diceroll() -> i32 {
 }
 
 //Function to calculate the total attack roll and print it
-//Function to calculate the total attack roll and print it
-fn player_attack() {
-    let attack_total = attack_roll(attk_mod: 6); //call attack_roll function to get total attack roll, pasing in the attack modifier of 6
+fn player_attack(attk_mod: i32) {
+    let attack_total: i32 = attack_roll(attk_mod); //call attack_roll function to get total attack roll
     println!("Does a(n) {} hit?", attack_total);
 }
 
