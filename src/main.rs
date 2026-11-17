@@ -1,38 +1,26 @@
 use rand::Rng; //using rand dependency 0.8
 
 fn main() {
-    //diceroll();
-
     player_attack(); //call player_attack function
 }
 
-//Displays a random number between 1 and 20
-//to represent a d20 dice roll
-fn diceroll() {
+//Return random number between 1 and 20 to simulate a d20 roll
+fn diceroll() -> i32 {
     let num = rand::thread_rng().gen_range(1..20);
-
-    if num == 20 {
-        println!("You rolled a nat 20, Critical hit!");
-    } else if num == 1 {
-        println!("You rolled a nat 1, Critical fail!");
-    } else {
-        println!("You rolled a(n) {}", num);
-    }
+    return num;
 }
 
-//Displays the result of the attack_roll function
+//Function to calculate the total attack roll and print it
 fn player_attack() {
-    let attack_total = attack_roll();
+    let attack_total = attack_roll(); //call attack_roll function to get total attack roll
     println!("Does a {} hit?", attack_total);
 }
 
-//Returns the player's attack roll as an integer. 
-//A random number between 1 and 20.
+//Function to calculate the total attack roll by adding the d20 roll and the attack modifier
 fn attack_roll() -> i32 {
-    let num = rand::thread_rng().gen_range(1..20);
+    let num = diceroll(); //call diceroll function to get random number between 1 and 20
     let attk_mod = 6; 
     let attack_total: i32 = num + attk_mod;       
-    
 
     return attack_total;
 }
